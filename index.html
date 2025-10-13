@@ -38,6 +38,44 @@
         </p>
       </div>
     </div>
+    <div
+      id="mobile-warning"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: white;
+        color: #ff3b30;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        text-align: center;
+        z-index: 9999;
+        padding: 20px;
+      "
+    >
+      This system is designed for desktop. Please use a larger screen.
+    </div>
+
+    <script>
+      const warning = document.getElementById("mobile-warning");
+
+      function checkScreen() {
+        if (window.innerWidth < 768) {
+          warning.style.display = "flex";
+        } else {
+          warning.style.display = "none";
+        }
+      }
+
+      checkScreen();
+
+      window.addEventListener("resize", checkScreen);
+    </script>
+
     <script src="js/login.js"></script>
   </body>
 </html>

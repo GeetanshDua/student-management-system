@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Dashboard Student Management System</title>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <div class="side-bar">
+        <div class="side-bar-heading">
+          <h3 id="college-name">G.N.D.U College</h3>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="" class="active">Students</a>
+          <a href="">Courses</a>
+          <a href="">Attendance</a>
+          <a href="">Settings</a>
+          <a href="">About</a>
+        </div>
+        <div class="side-bar-footer">
+          <p>&copy;2025 TEAM SBO</p>
+        </div>
+      </div>
+      <div class="main-content">
+        <div class="top-bar">
+          <h2>Students</h2>
+          <div class="profile">
+            <img src="img/user-icon.png" alt="" />
+            <span>Admin</span>
+          </div>
+        </div>
+
+        <div class="student-dashboard-card">
+          <div class="topbar">
+            <div class="topbar-left">
+              <input
+                type="text"
+                id="search-student"
+                placeholder="Search student by name or roll no..."
+              />
+            </div>
+            <div class="topbar-right">
+              <select id="filter-class">
+                <option value>All Classes</option>
+                <option value="bca">BCA</option>
+                <option value="mca">MCA</option>
+              </select>
+              <button id="">Add Student</button>
+            </div>
+          </div>
+          <div class="student-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Roll No</th>
+                  <th>Name</th>
+                  <th>Class</th>
+                  <th>Marks</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Geetansh Dua</td>
+                  <td>BCA</td>
+                  <td>100</td>
+                  <td>
+                    <button class="student-edit">Edit</button>
+                    <button class="student-delete">Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>420</td>
+                  <td>Jagnoor</td>
+                  <td>BCA</td>
+                  <td>33.3</td>
+                  <td>
+                    <button class="student-edit">Edit</button>
+                    <button class="student-delete">Delete</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>420</td>
+                  <td>Money</td>
+                  <td>BCA</td>
+                  <td>33.3</td>
+                  <td>
+                    <button class="student-edit">Edit</button>
+                    <button class="student-delete">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="footer"><p>Created By TEAM SBO</p></div>
+      </div>
+    </div>
+  </body>
+</html>

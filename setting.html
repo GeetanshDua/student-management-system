@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings – Student Management</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <div class="side-bar">
+        <div class="side-bar-heading">
+          <h3 id="college-name">G.N.D.U College</h3>
+          <a href="dashboard.html">Dashboard</a>
+          <a href="student.html">Students</a>
+          <a href="courses.html">Courses</a>
+          <a href="">Attendance</a>
+          <a href="setting.html" class="active">Settings</a>
+          <a href="about.html">About</a>
+        </div>
+        <div class="side-bar-footer">
+          <p>&copy;2025 TEAM SBO</p>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div class="top-bar">
+          <h2>Settings</h2>
+          <div class="profile">
+            <img src="img/user-icon.png" alt="" />
+            <span>Admin</span>
+          </div>
+        </div>
+
+        <div class="settings-dashboard-card">
+          <div class="settings-section">
+            <h3>Admin Info</h3>
+            <div class="settings-group">
+              <label for="admin-name">Name</label>
+              <input type="text" id="admin-name" placeholder="Admin Name" />
+            </div>
+
+            <div class="settings-group">
+              <label for="admin-email">Email</label>
+              <input
+                type="email"
+                id="admin-email"
+                placeholder="admin@example.com"
+              />
+            </div>
+
+            <h3>Change Password</h3>
+            <div class="settings-group">
+              <label for="current-pass">Current Password</label>
+              <input
+                type="password"
+                id="current-pass"
+                placeholder="Current Password"
+              />
+            </div>
+
+            <div class="settings-group">
+              <label for="new-pass">New Password</label>
+              <input type="password" id="new-pass" placeholder="New Password" />
+            </div>
+
+            <div class="settings-group">
+              <label for="confirm-pass">Confirm Password</label>
+              <input
+                type="password"
+                id="confirm-pass"
+                placeholder="Confirm New Password"
+              />
+            </div>
+
+            <button id="update-settings">Update Settings</button>
+          </div>
+        </div>
+
+        <div class="footer"><p>Created By TEAM SBO</p></div>
+      </div>
+    </div>
+  </body>
+</html>

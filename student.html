@@ -45,6 +45,9 @@
                 <option value>All Classes</option>
                 <option value="bca">BCA</option>
                 <option value="mca">MCA</option>
+                <option value="bba">BBA</option>
+                <option value="bsc">BSC</option>
+                <option value="mba">MBA</option>
               </select>
               <button id="">Add Student</button>
             </div>
@@ -60,38 +63,7 @@
                   <th>Actions</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Geetansh Dua</td>
-                  <td>BCA</td>
-                  <td>100</td>
-                  <td>
-                    <button class="student-edit">Edit</button>
-                    <button class="student-delete">Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>420</td>
-                  <td>Jagnoor</td>
-                  <td>BCA</td>
-                  <td>33.3</td>
-                  <td>
-                    <button class="student-edit">Edit</button>
-                    <button class="student-delete">Delete</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>420</td>
-                  <td>Money</td>
-                  <td>BCA</td>
-                  <td>33.3</td>
-                  <td>
-                    <button class="student-edit">Edit</button>
-                    <button class="student-delete">Delete</button>
-                  </td>
-                </tr>
-              </tbody>
+              <tbody></tbody>
             </table>
           </div>
         </div>
@@ -99,5 +71,27 @@
         <div class="footer"><p>Created By TEAM SBO</p></div>
       </div>
     </div>
+    <div id="student-modal" class="modal">
+      <div class="modal-content">
+        <h3 id="modal-title">Add Student</h3>
+        <input type="number" id="modal-roll" placeholder="Roll No" />
+        <input type="text" id="modal-name" placeholder="Name" />
+        <select id="modal-class">
+          <option value="" disabled selected>Select Class</option>
+          <option value="BCA">BCA</option>
+          <option value="MCA">MCA</option>
+          <option value="BBA">BBA</option>
+          <option value="BSC">BSC</option>
+          <option value="MBA">MBA</option>
+        </select>
+        <input type="number" id="modal-marks" placeholder="Marks" step="0.1" />
+        <div class="modal-buttons">
+          <button id="modal-save">Save</button>
+          <button id="modal-cancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/student.js"></script>
   </body>
 </html>

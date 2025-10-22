@@ -1,17 +1,32 @@
-const loginbtn = document.getElementById("login-btn");
+document.addEventListener("DOMContentLoaded", () => {
+  const loginBtn = document.getElementById("login-btn");
 
-loginbtn.addEventListener("click", () => {
-  const username = document.getElementById("login-username").value.trim();
-  const password = document.getElementById("login-password").value.trim();
-
-  if (username === "" || password === "") {
-    alert("Please enter username and password!");
-    return;
+  if (!localStorage.getItem("adminInfo")) {
+    const defaultAdmin = {
+      username: "Admin",
+      password: "admin",
+    };
+    localStorage.setItem("adminInfo", JSON.stringify(defaultAdmin));
   }
 
-  if (username === "Admin" && password === "admin") {
-    window.location.href = "dashboard.html";
-  } else {
-    alert("Incorrect Password");
-  }
+  loginBtn.addEventListener("click", () => {
+    const username = document.getElementById("login-username").value.trim();
+    const password = document.getElementById("login-password").value.trim();
+
+    if (username === "" || password === "") {
+      alert("Please enter username and password!");
+      return;
+    }
+
+    const adminData = JSON.parse(localStorage.getItem("adminInfo"));
+
+    if (
+      username.toLowerCase() === adminData.username.toLowerCase() &&
+      password === adminData.password
+    ) {
+      window.location.href = "dashboard.html";
+    } else {
+      alert("Incorrect username or password!");
+    }
+  });
 });

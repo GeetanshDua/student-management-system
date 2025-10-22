@@ -12,13 +12,14 @@ const marksInput = document.getElementById("modal-marks");
 const saveBtn = document.getElementById("modal-save");
 const cancelBtn = document.getElementById("modal-cancel");
 
-let students = JSON.parse(localStorage.getItem("students")) || [
-  { roll: 1, name: "Geetansh Dua", class: "BCA", marks: 100 },
-  { roll: 420, name: "Jagnoor", class: "BCA", marks: 33.3 },
-  { roll: 421, name: "Money", class: "BCA", marks: 33.3 },
-];
+const deleteModal = document.getElementById("delete-modal");
+const deleteText = document.getElementById("delete-modal-text");
+const deleteConfirm = document.getElementById("delete-confirm");
+const deleteCancel = document.getElementById("delete-cancel");
 
+let students = JSON.parse(localStorage.getItem("students")) || [];
 let editingIndex = null;
+let deletingIndex = null;
 
 function saveStudents() {
   localStorage.setItem("students", JSON.stringify(students));
@@ -49,7 +50,8 @@ function renderStudents() {
       tableBody.appendChild(row);
 
       row.querySelector(".student-edit").onclick = () => editStudent(index);
-      row.querySelector(".student-delete").onclick = () => deleteStudent(index);
+      row.querySelector(".student-delete").onclick = () =>
+        openDeleteModal(index);
     }
   });
 }
@@ -66,15 +68,29 @@ function editStudent(index) {
   modal.style.display = "flex";
 }
 
-function deleteStudent(index) {
-  if (confirm(`Delete ${students[index].name}?`)) {
-    students.splice(index, 1);
-    saveStudents();
-    renderStudents();
-  }
+function openDeleteModal(index) {
+  deletingIndex = index;
+  const student = students[index];
+  deleteText.textContent = `Are you sure you want to delete ${student.name}?`;
+  deleteModal.style.display = "flex";
 }
 
-// Open modal for adding new student
+// CONFIRM DELETE
+deleteConfirm.onclick = () => {
+  if (deletingIndex !== null) {
+    students.splice(deletingIndex, 1);
+    saveStudents();
+    renderStudents();
+    deletingIndex = null;
+  }
+  deleteModal.style.display = "none";
+};
+
+deleteCancel.onclick = () => {
+  deletingIndex = null;
+  deleteModal.style.display = "none";
+};
+
 addBtn.onclick = () => {
   editingIndex = null;
   modalTitle.textContent = "Add Student";
@@ -89,7 +105,6 @@ addBtn.onclick = () => {
   modal.style.display = "flex";
 };
 
-// Save from modal
 saveBtn.onclick = () => {
   const roll = Number(rollInput.value);
   const name = nameInput.value.trim();
@@ -112,12 +127,9 @@ saveBtn.onclick = () => {
   modal.style.display = "none";
 };
 
-// Cancel modal
 cancelBtn.onclick = () => (modal.style.display = "none");
 
-// Search and filter
 searchInput.oninput = renderStudents;
 filterSelect.onchange = renderStudents;
 
-// Initial render
 renderStudents();

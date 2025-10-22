@@ -16,29 +16,34 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentPass = currentPassInput.value.trim();
     const newPass = newPassInput.value.trim();
     const confirmPass = confirmPassInput.value.trim();
+    const newName = nameInput.value.trim();
+
+    if (!newName) {
+      alert("Admin name cannot be empty!");
+      return;
+    }
 
     if (currentPass !== adminData.password) {
       alert("Current password is incorrect!");
       return;
     }
 
-    if (newPass === "" || confirmPass === "") {
-      alert("Please fill in all password fields!");
-      return;
-    }
-
-    if (newPass !== confirmPass) {
+    if ((newPass !== "" || confirmPass !== "") && newPass !== confirmPass) {
       alert("New passwords do not match!");
       return;
     }
 
-    adminData.username = nameInput.value.trim() || adminData.username;
-    adminData.password = newPass;
+    // Update admin info
+    adminData.username = newName;
+    if (newPass) adminData.password = newPass;
+
     localStorage.setItem("adminInfo", JSON.stringify(adminData));
 
     alert("Settings updated successfully!");
     currentPassInput.value = "";
     newPassInput.value = "";
     confirmPassInput.value = "";
+
+    window.location.reload();
   });
 });

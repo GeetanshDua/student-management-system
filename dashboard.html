@@ -35,21 +35,32 @@
           <p id="system-msg">Here what's happening today in the system.</p>
           <div class="summary-container">
             <div class="summary-card">
-              <h4>Students</h4>
+              <h4>Total Students</h4>
               <p id="students-count">3</p>
             </div>
             <div class="summary-card">
               <h4>Courses</h4>
-              <p id="courses-count">2</p>
-            </div>
-            <div class="summary-card">
-              <h4>Attendance</h4>
-              <p id="attendance-count">10%</p>
+              <p id="courses-count">5</p>
             </div>
           </div>
         </div>
         <div class="footer"><p>Created By TEAM SBO</p></div>
       </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const students = JSON.parse(localStorage.getItem("students")) || [];
+
+        document.getElementById("students-count").textContent = students.length;
+
+        const msg = document.getElementById("system-msg");
+        if (students.length === 0) {
+          msg.textContent =
+            "No students found. Add some in the Students section.";
+        } else {
+          msg.textContent = "Dashboard updated with latest data.";
+        }
+      });
+    </script>
   </body>
 </html>

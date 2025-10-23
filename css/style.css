@@ -36,6 +36,12 @@
   color: red;
   text-decoration: none;
   font-weight: 600;
+  transition: 0.2s ease-in-out;
+}
+
+.showbuzz:hover {
+  text-decoration: underline;
+  transition: 0.2s ease-in-out;
 }
 
 body {
